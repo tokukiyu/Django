@@ -24,3 +24,4 @@ urlpatterns = [
     path('/ho', views.homeA, name='homeA'),
     
 ]
+ 
