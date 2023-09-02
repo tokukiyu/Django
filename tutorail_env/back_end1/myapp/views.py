@@ -5,3 +5,5 @@ from django.http import HttpResponse
 
 def home (re):
     return HttpResponse('hello world')
+def homeA (re):
+    return HttpResponse('hello Kiyu')
