@@ -1,9 +1,13 @@
 import facebook
+import urllib.parse 
 import requests
 
-access_token = 'EAAEiZAG3Kh08BOxucdrv0avGWYfZCK2RNYO3Nf0cY1JsKZAFsywZA4I61BiZBWH7ZBhre2jZCX00J0uVnVwtsoZCNI1sGIEgCQ8geZCPzcZBvyi4AEF4ta3FZCWAY7bp4owqLHmVorrmTuMvDmJJbMAd02nZC1xeFB1X0zB2ZA1wUCnKgGbaLeuegZBDpCBu9SeI4NpVF9YKk19OAM21s6ZBpDCVLxNewBoOceS' 
+access_token = 'EAAEiZAG3Kh08BO7tvP4nvj9EqG3uZBZBHeTGkfLWVgkHTDuZC2mSuhPE2yKsO6b0WZAsXvhZBrTGj4HMMFrVv6nvfRTPkX0x7Dy4cEjT2OHBvtZAH3pZA1oOGIYYeF2So9HwIEmMaSMIMn6RvMyKG1ivQ3h0mxHj2poxNBqhaJ3meozxcGrWREPvZAJQLS5WgMgljicJxuzwAOLihsLIQiAYYE7YUaZAoZD' 
 
-url = f"https://graph.facebook.com/v13.0/search?q=%23oromo&type=post&access_token={access_token}"
+# url = f"https://graph.facebook.com/v13.0/search?q=%23oromo&type=post&access_token={access_token}"
+
+hashtag_encoded = urllib.parse.quote('#oromo')
+url = f"https://graph.facebook.com/v13.0/search?q={hashtag_encoded}&type=post&access_token={access_token}"
 
 # Send the GET request to Facebook's Graph API
 response = requests.get(url)
