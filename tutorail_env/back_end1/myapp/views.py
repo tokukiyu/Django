@@ -5,4 +5,5 @@ from django.http import HttpResponse
 
 def home (re):
     return HttpResponse('hello world of django new')
-  
+def TryMe(re):
+    return HttpResponse('<h1>hello world of django new </h1')
