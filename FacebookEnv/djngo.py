@@ -5,7 +5,7 @@ import requests
 
 # Encode the hashtag
 hashtag_encoded = urllib.parse.quote('#oromo')
- 
+
 # Construct the API request URL
 url = f"https://graph.facebook.com/v17.0/search?q={hashtag_encoded}&type=post&access_token={access_token}"
 
