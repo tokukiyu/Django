@@ -1,22 +1,13 @@
 import facebook
-import urllib.parse 
-import requests
-#access_token = 'EAAEiZAG3Kh08BO7tvP4nvj9EqG3uZBZBHeTGkfLWVgkHTDuZC2mSuhPE2yKsO6b0WZAsXvhZBrTGj4HMMFrVv6nvfRTPkX0x7Dy4cEjT2OHBvtZAH3pZA1oOGIYYeF2So9HwIEmMaSMIMn6RvMyKG1ivQ3h0mxHj2poxNBqhaJ3meozxcGrWREPvZAJQLS5WgMgljicJxuzwAOLihsLIQiAYYE7YUaZAoZD' 
 
-# Encode the hashtag
-hashtag_encoded = urllib.parse.quote('#oromo')
+access_token = "EAAEiZAG3Kh08BOzIgI0ZBOV1NgYTwZAZBvnP01NMpLR8VzCcN2F5df12EWNcfqLbCodU5pj3rXJznkY8wiqh7AjpfHqW8QWp6ZACOXZBGGWpbZAuEvGFEQaBpNFKKgAvj8bFTfKuM68KknEUjgkipzOpxVrZAfjJYoj3fq315v6mSZCgPA1TDM1nrYGflHrYkZAVjU9lZBkQN0UEEZCs75wlDVMZD" 
 
-# Construct the API request URL
-url = f"https://graph.facebook.com/v17.0/search?q={hashtag_encoded}&type=post&access_token={access_token}"
+graph = facebook.GraphAPI(access_token)
 
-# Send the GET request to Facebook's Graph API
-response = requests.get(url)
+fql_query = ("SELECT post_id, permalink, message FROM post WHERE "
+             "hashtags IN ('#oromo') AND is_published = true")
 
-if response.status_code == 200:
-    data = response.json()
-    for post in data.get('data', []):
-        print(post.get('message', 'No message'))
-        print(post.get('created_time', 'No creation time'))
-        print(post.get('id', 'No ID'))
-else:
-    print(f"Error fetching posts: {response.status_code}")
+fql_result = graph.fql(fql_query)
+
+for post in fql_result:
+   print(post['post_id'], post['permalink'], post['message'])
