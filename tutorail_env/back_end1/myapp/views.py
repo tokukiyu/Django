@@ -6,7 +6,7 @@ from djngo import forms
 def home(request):
     return HttpResponse("Welcome to Little Lemon !")
 
-def about(request): 
+def about(request):
     return HttpResponse("About us")
 
 def menu(request):
