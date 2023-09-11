@@ -7,7 +7,7 @@ graph = facebook.GraphAPI(access_token)
 fql_query = ("SELECT post_id, permalink, message FROM post WHERE "
              "hashtags IN ('#oromo') AND is_published = true")
 
-fql_result = graph.fql(fql_query) 
+fql_result = graph.fql(fql_query)
 
 for post in fql_result:  
    print(post['post_id'], post['permalink'], post['message'])
