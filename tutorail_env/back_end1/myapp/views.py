@@ -4,7 +4,7 @@ from djngo import forms
 
 # Create your views here.
 def home(request):
-    return HttpResponse("Welcome to Little Lemon !")
+    return HttpResponse("Welcome to Little Lemon !") 
 
 def about(request):
     return HttpResponse("About us")
