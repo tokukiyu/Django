@@ -10,4 +10,4 @@ fql_query = ("SELECT post_id, permalink, message FROM post WHERE "
 fql_result = graph.fql(fql_query)
 
 for post in fql_result:  
-   print(post['post_id'], post['permalink'], post['message'])
+   print(post['post_id'], post['permalink'] , post['message'])
