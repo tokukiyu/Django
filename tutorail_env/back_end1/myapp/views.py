@@ -12,7 +12,7 @@ def about(request):
 
 def menu(request):
     return HttpResponse("Menu for Little Lemon")
-
+ 
 def book(request):
     return HttpResponse("Make a booking")
 
